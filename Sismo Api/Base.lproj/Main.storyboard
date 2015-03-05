@@ -1,25 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oMK-jQ-x0k">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Sismos - Chile-->
+        <scene sceneID="eJy-9R-vdv">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <tableViewController id="clx-zO-HRf" customClass="SismoTableViewController" customModule="Sismo_Api" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eS7-HI-Czl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="xKd-Tz-ght" detailTextLabel="lVY-aa-M2G" style="IBUITableViewCellStyleSubtitle" id="ehE-rJ-2sh">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ehE-rJ-2sh" id="qIu-Po-Uca">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xKd-Tz-ght">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lVY-aa-M2G">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="eXF-WI-QkM" kind="push" identifier="showMap" id="mSB-32-565"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="clx-zO-HRf" id="d1a-sn-fUQ"/>
+                            <outlet property="delegate" destination="clx-zO-HRf" id="0KZ-dL-Gya"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Sismos - Chile" id="fRz-15-U1e"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qak-6k-Pth" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1239" y="438"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="a4J-6Q-yRc">
+            <objects>
+                <viewController id="eXF-WI-QkM" customClass="MapViewController" customModule="Sismo_Api" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dvo-SL-hds"/>
+                        <viewControllerLayoutGuide type="bottom" id="9MR-KE-EeJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LrA-0I-so5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Hl-sf-VPi" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="543"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Hl-sf-VPi" firstAttribute="top" secondItem="Dvo-SL-hds" secondAttribute="bottom" id="ATo-vR-2nz"/>
+                            <constraint firstItem="1Hl-sf-VPi" firstAttribute="leading" secondItem="LrA-0I-so5" secondAttribute="leadingMargin" constant="-16" id="Fke-sJ-pJQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="1Hl-sf-VPi" secondAttribute="bottom" constant="-7" id="Gqn-9k-Y58"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Hl-sf-VPi" secondAttribute="trailing" constant="-16" id="uaO-jo-oEO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="EV4-bP-hAu"/>
+                    <connections>
+                        <outlet property="mapView" destination="1Hl-sf-VPi" id="URm-AZ-t7X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j2e-0x-Eop" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2025" y="438"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eTJ-pU-6B9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oMK-jQ-x0k" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ng-pm-cQe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="clx-zO-HRf" kind="relationship" relationship="rootViewController" id="fmc-OK-wc8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCR-Rm-PHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="438"/>
         </scene>
     </scenes>
 </document>
